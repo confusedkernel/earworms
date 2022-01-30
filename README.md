@@ -5,3 +5,4 @@ Call the bot using "!" prefix.
 Current command list:
   - hello
   - join
+  - play
