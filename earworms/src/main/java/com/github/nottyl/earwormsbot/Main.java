@@ -9,23 +9,26 @@ import discord4j.core.DiscordClientBuilder;
 import discord4j.core.GatewayDiscordClient;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import java.util.Map;
-import com.github.nottyl.earwormsbot.LavaPlayerAudioProvider;
+import com.github.nottyl.earwormsbot.TrackScheduler;
 import discord4j.voice.AudioProvider;
 
 public class Main {
 
     public static AudioProvider provider;
+    public static AudioPlayerManager playerManager;
+    public static AudioPlayer player;
 
     public static void main(String[] args){
-        final AudioPlayerManager playerManager = new DefaultAudioPlayerManager();
+        playerManager = new DefaultAudioPlayerManager();
         playerManager.getConfiguration().setFrameBufferFactory(NonAllocatingAudioFrameBuffer::new);
         AudioSourceManagers.registerRemoteSources(playerManager);
-        final AudioPlayer player = playerManager.createPlayer();
+        player = playerManager.createPlayer();
         provider = new LavaPlayerAudioProvider(player);
         final GatewayDiscordClient client = DiscordClientBuilder.create(args[0])
                 .build()
                 .login()
                 .block();
+
         client.getEventDispatcher().on(MessageCreateEvent.class)
                 .subscribe(event -> {
                     final String content = event.getMessage().getContent();
@@ -36,6 +39,7 @@ public class Main {
                         }
                     }
                 });
+
         client.onDisconnect().block();
     }
 }
