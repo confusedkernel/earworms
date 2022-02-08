@@ -7,5 +7,5 @@ Current command list:
   - !hello
   - !join
   - !play
-  - !pause
+  - !stop
 ```
