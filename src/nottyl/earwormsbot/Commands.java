@@ -20,6 +20,7 @@ public class Commands {
         commands.put("hello", event -> event.getMessage()
                 .getChannel().block()
                 .createMessage("👋 | Hello to you too!").block());
+
         commands.put("join", event -> {
             final Member member = event.getMember().orElse(null);
             if (member != null) {
@@ -33,12 +34,14 @@ public class Commands {
                 }
             }
         });
+
         final TrackScheduler scheduler = new TrackScheduler(Main.player);
         commands.put("play", event -> Mono.justOrEmpty(event.getMessage().getContent())
                 .map(content -> Arrays.asList(content.split(" ")))
                 .doOnNext(command -> Main.playerManager.loadItem(command.get(1), scheduler))
                 .then(event.getMessage().getChannel().block().createMessage("▶️ | Now Playing..."))
                 .block());
+
         commands.put("stop", event -> Mono.justOrEmpty(event.getMessage().getContent())
                 .doFirst(new Runnable() {
                     @Override
@@ -46,7 +49,27 @@ public class Commands {
                         Main.playerManager.shutdown();
                     }
                 })
-                .then(event.getMessage().getChannel().block().createMessage("⏹ | The music is stopped."))
+                .then(event.getMessage().getChannel().block().createMessage("⏹ | The music has stopped."))
+                .block());
+
+        commands.put("pause", event -> Mono.justOrEmpty(event.getMessage().getContent())
+                .doFirst(new Runnable() {
+                    @Override
+                    public void run() {
+                        Main.player.setPaused(true);
+                    }
+                })
+                .then(event.getMessage().getChannel().block().createMessage("⏯ | The music is paused."))
+                .block());
+
+        commands.put("resume", event -> Mono.justOrEmpty(event.getMessage().getContent())
+                .doFirst(new Runnable() {
+                    @Override
+                    public void run() {
+                        Main.player.setPaused(false);
+                    }
+                })
+                .then(event.getMessage().getChannel().block().createMessage("⏯ | The music is resumed."))
                 .block());
     }
 
