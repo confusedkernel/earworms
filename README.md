@@ -8,4 +8,6 @@ Current command list:
   - !join
   - !play
   - !stop
+  - !pause
+  - !resume
 ```
