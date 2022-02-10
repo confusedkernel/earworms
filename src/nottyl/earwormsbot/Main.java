@@ -11,6 +11,8 @@ import discord4j.core.event.domain.message.MessageCreateEvent;
 import java.util.Map;
 
 import discord4j.voice.AudioProvider;
+import nottyl.earwormsbot.commands.Commands;
+import nottyl.earwormsbot.lavaplayer.LavaPlayerAudioProvider;
 
 public class Main {
 
@@ -29,6 +31,7 @@ public class Main {
                 .login()
                 .block();
 
+
         client.getEventDispatcher().on(MessageCreateEvent.class)
                 .subscribe(event -> {
                     final String content = event.getMessage().getContent();
@@ -39,7 +42,6 @@ public class Main {
                         }
                     }
                 });
-
         client.onDisconnect().block();
     }
 }
