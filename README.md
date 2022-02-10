@@ -6,6 +6,7 @@ Current command list:
 ```
   - !hello
   - !join
+  - !disconnect
   - !play
   - !stop
   - !pause
