@@ -14,7 +14,6 @@ public class Hello implements ICommand {
 
     @Override
     public void execute(MessageCreateEvent event) {
-        System.out.println("I am being executed");
         Objects.requireNonNull(event.getMessage()
                         .getChannel().block())
                 .createMessage("👋 | Hello to you too!").block();
