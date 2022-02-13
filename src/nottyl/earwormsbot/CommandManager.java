@@ -12,7 +12,7 @@ public class CommandManager {
 	public final static List<ICommand> commands = new ArrayList<>(
 			Arrays.asList(
 					new Hello(),
-//                    new Disconnect(),
+                    new Disconnect(),
 					new Join(),
 					new Play(),
 					new Pause(),

@@ -3,14 +3,14 @@ package nottyl.earwormsbot.commands;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.object.VoiceState;
 import discord4j.core.object.entity.Member;
+import discord4j.core.object.entity.channel.VoiceChannel;
 import nottyl.earwormsbot.ICommand;
-import nottyl.earwormsbot.Main;
 import reactor.core.publisher.Mono;
 
-public class Join implements ICommand {
+public class Disconnect implements ICommand {
 	@Override
 	public String name() {
-		return "join";
+		return "disconnect";
 	}
 
 	@Override
@@ -20,7 +20,7 @@ public class Join implements ICommand {
 				.flatMap(VoiceState::getChannel)
 				// join returns a VoiceConnection which would be required if we were
 				// adding disconnection features, but for now we are just ignoring it.
-				.flatMap(channel -> channel.join(spec -> spec.setProvider(Main.provider)))
+				.flatMap(VoiceChannel::sendDisconnectVoiceState)
 				.block();
 	}
 }
