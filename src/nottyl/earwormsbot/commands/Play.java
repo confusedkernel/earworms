@@ -21,6 +21,7 @@ public class Play implements ICommand {
                 .map(content -> Arrays.asList(content.split(" ")))
 //                TODO : fix out of bound "get(1)"
                 .doOnNext(command -> Main.playerManager.loadItem(command.get(1), scheduler))
+                .then(event.getMessage().getChannel().block().createMessage("▶️ | Now Playing..."))
                 .block();
     }
 }
