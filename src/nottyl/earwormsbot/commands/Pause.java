@@ -18,6 +18,7 @@ public class Pause implements ICommand {
     @Override
     public void execute(MessageCreateEvent event) {
         final TrackScheduler scheduler = new TrackScheduler(Main.player);
+        System.out.println("I am being executed");
         Mono.justOrEmpty(event.getMessage().getContent())
                 .doFirst(() -> Main.player.setPaused(true))
                 .then(event.getMessage().getChannel().block().createMessage("⏯ | The music is paused."))

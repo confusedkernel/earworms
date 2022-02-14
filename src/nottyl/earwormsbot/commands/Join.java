@@ -8,17 +8,20 @@ import nottyl.earwormsbot.Main;
 import reactor.core.publisher.Mono;
 
 public class Join implements ICommand {
-	@Override
-	public String name() {
-		return "join";
-	}
+    @Override
+    public String name() {
+        return "join";
+    }
 
-	@Override
-	public void execute(MessageCreateEvent event) {
-		Mono.justOrEmpty(event.getMember())
-				.flatMap(Member::getVoiceState)
-				.flatMap(VoiceState::getChannel)
-				.flatMap(channel -> channel.join(spec -> spec.setProvider(Main.provider)))
-				.block();
-	}
+    @Override
+    public void execute(MessageCreateEvent event) {
+        Mono.justOrEmpty(event.getMember())
+                .flatMap(Member::getVoiceState)
+                .flatMap(VoiceState::getChannel)
+                .flatMap(channel -> channel.join(spec -> spec.setProvider(Main.provider)))
+                .block();
+        event.getMessage()
+                .getChannel().block()
+                .createMessage("🎛 | Joined the Voice Channel").block();
+    }
 }

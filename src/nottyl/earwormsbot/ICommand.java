@@ -7,4 +7,5 @@ public interface ICommand {
     String name();
 
     void execute(MessageCreateEvent event);
+
 }
