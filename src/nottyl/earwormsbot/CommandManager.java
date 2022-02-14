@@ -17,7 +17,9 @@ public class CommandManager {
                     new Pause(),
                     new Resume(),
                     new Disconnect(),
-                    new Stop()
+                    new Stop(),
+                    new Fuck(),
+                    new Ping()
             )
     );
 

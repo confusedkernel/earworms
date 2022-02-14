@@ -15,10 +15,11 @@ public class Play implements ICommand {
         return "play";
     }
 
+    /*TODO: New play function that taps into QueueArray and new TrackScheduler*/
+
     @Override
     public void execute(MessageCreateEvent event) {
         final TrackScheduler scheduler = new TrackScheduler(Main.player);
-        System.out.println("I am being executed");
         Mono.justOrEmpty(event.getMessage().getContent())
                 //TODO: fix the bug of (command.get(1))
                 .map(content -> Arrays.asList(content.split(" ")))
@@ -28,4 +29,9 @@ public class Play implements ICommand {
                 .getChannel().block()
                 .createMessage("▶️ | Now Playing...").block();
     }
+
+/*  public void execute(MessageCreateEvent event) {
+
+  }
+*/
 }

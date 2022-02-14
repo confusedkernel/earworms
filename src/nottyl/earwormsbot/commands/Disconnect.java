@@ -5,7 +5,6 @@ import discord4j.core.object.VoiceState;
 import discord4j.core.object.entity.Member;
 import discord4j.core.object.entity.channel.VoiceChannel;
 import nottyl.earwormsbot.ICommand;
-import nottyl.earwormsbot.Main;
 import reactor.core.publisher.Mono;
 
 public class Disconnect implements ICommand {

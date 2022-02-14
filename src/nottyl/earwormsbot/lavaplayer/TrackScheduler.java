@@ -35,3 +35,60 @@ public final class TrackScheduler implements AudioLoadResultHandler {
         // LavaPlayer could not parse an audio source for some reason
     }
 }
+
+/*TODO: New queue system*/
+/*
+public final class TrackScheduler extends AudioEventAdapter {
+
+    public static AudioPlayer player;
+    public final QueueArray<AudioTrack> queue;
+    public AudioTrack currentTrack;
+    public final QueueArray<AudioTrack> playedQueue;
+    private final Logger logger;
+
+    public TrackScheduler(AudioPlayer player) {
+        this.player = player;
+        this.queue = new QueueArray<>();
+        this.playedQueue = new QueueArray<>();
+        logger = LoggerFactory.getLogger(this.getClass());
+    }
+
+    public boolean queue(AudioTrack track, boolean noInterrupt) {
+        boolean playing = !this.player.startTrack(track, noInterrupt);
+        if (playing) {
+            this.queue.pushTail(track);
+        }
+        updateCurrentTrack();
+        return !playing;
+    }
+
+    private void updateCurrentTrack() {
+        currentTrack = player.getPlayingTrack();
+    }
+
+    public void clearQueue() {
+        this.queue.clear();
+        this.playedQueue.clear();
+    }
+
+    public void nextTrack() throws IllegalStateException {
+        final AudioTrack next = this.queue.popHead();
+        this.playedQueue.pushTail(currentTrack);
+        this.player.startTrack(next.makeClone(), false);
+        updateCurrentTrack();
+    }
+
+    public void prevTrack() throws IllegalStateException {
+        final AudioTrack last = this.playedQueue.popTail();
+        this.queue.pushHead(currentTrack);
+        this.player.startTrack(last.makeClone(), false);
+        updateCurrentTrack();
+    }
+
+    @Override
+    public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason) {
+        if (endReason.mayStartNext) {
+            nextTrack();
+        }
+    }
+}*/
