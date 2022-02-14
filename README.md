@@ -11,4 +11,5 @@ Current command list:
   - !stop
   - !pause
   - !resume
+  - !ping
 ```
