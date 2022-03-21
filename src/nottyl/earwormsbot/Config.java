@@ -10,6 +10,7 @@ public class Config {
      * @param key a query of type string
      * @return the variable requested
      */
+
     public static String get(String key) {
         return dotenv.get(key.toUpperCase());
     }

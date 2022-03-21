@@ -5,20 +5,21 @@ import nottyl.earwormsbot.ICommand;
 import nottyl.earwormsbot.Main;
 import nottyl.earwormsbot.lavaplayer.MusicManager;
 
-public class Resume implements ICommand {
-
+public class Skip implements ICommand {
     @Override
     public String name() {
-        return "resume";
+        return "skip";
     }
 
     @Override
     public void execute(MessageCreateEvent event) {
+        final MusicManager mgr = Main.guildMusicManager.getMusicManager(event);
+
         event.getMessage().getChannel()
                 .subscribe(ch -> {
-                    final MusicManager mgr = Main.guildMusicManager.getMusicManager(event);
-                    mgr.resume();
-                    ch.createMessage("⏯ | The music is resumed.").subscribe();
+                    mgr.nextTrack();
+                    ch.createMessage("⏭ | Skipped.").subscribe();
                 });
     }
+
 }

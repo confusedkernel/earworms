@@ -1,11 +1,17 @@
 package nottyl.earwormsbot.commands;
 
+import discord4j.common.util.Snowflake;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.object.VoiceState;
 import discord4j.core.object.entity.Member;
+import discord4j.core.object.entity.channel.MessageChannel;
+import discord4j.voice.AudioProvider;
 import nottyl.earwormsbot.ICommand;
 import nottyl.earwormsbot.Main;
+import nottyl.earwormsbot.lavaplayer.MusicManager;
 import reactor.core.publisher.Mono;
+
+import java.util.Optional;
 
 public class Join implements ICommand {
     @Override
@@ -15,13 +21,19 @@ public class Join implements ICommand {
 
     @Override
     public void execute(MessageCreateEvent event) {
+
+        final Mono<MessageChannel> textChannel = event.getMessage().getChannel();
+        final MusicManager mgr = Main.guildMusicManager.getMusicManager(event);
+        final AudioProvider provider = mgr.getProvider();
+        final Optional<Snowflake> guildId = event.getGuildId();
+
         Mono.justOrEmpty(event.getMember())
                 .flatMap(Member::getVoiceState)
                 .flatMap(VoiceState::getChannel)
-                .flatMap(channel -> channel.join(spec -> spec.setProvider(Main.provider)))
-                .block();
-        event.getMessage()
-                .getChannel().block()
-                .createMessage("🎛 | Joined the Voice Channel").block();
+                .subscribe(voiceChannel -> {
+                    voiceChannel.join(spec -> spec.setProvider(provider)).subscribe();
+                    textChannel.subscribe(replyChannel -> replyChannel.createMessage("🎛 | Joined the Voice Channel").subscribe());
+                });
+
     }
 }

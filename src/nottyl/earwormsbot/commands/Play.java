@@ -3,11 +3,7 @@ package nottyl.earwormsbot.commands;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import nottyl.earwormsbot.ICommand;
 import nottyl.earwormsbot.Main;
-import nottyl.earwormsbot.lavaplayer.TrackScheduler;
-import reactor.core.publisher.Mono;
-import java.util.Arrays;
-
-import static nottyl.earwormsbot.Main.playerManager;
+import nottyl.earwormsbot.lavaplayer.MusicManager;
 
 public class Play implements ICommand {
     @Override
@@ -16,22 +12,23 @@ public class Play implements ICommand {
     }
 
     /*TODO: New play function that taps into QueueArray and new TrackScheduler*/
+    /*TODO: Display song names*/
 
     @Override
     public void execute(MessageCreateEvent event) {
-        final TrackScheduler scheduler = new TrackScheduler(Main.player);
-        Mono.justOrEmpty(event.getMessage().getContent())
-                //TODO: fix the bug of (command.get(1))
-                .map(content -> Arrays.asList(content.split(" ")))
-                .doOnNext(command -> playerManager.loadItem(command.get(1), scheduler))
-                .block();
-        event.getMessage()
-                .getChannel().block()
-                .createMessage("▶️ | Now Playing...").block();
+        final MusicManager mgr = Main.guildMusicManager.getMusicManager(event);
+        final String query = event.getMessage().getContent()
+                .replaceFirst("^!play", "")
+                .trim();
+
+//		TODO : youtube search
+        event.getMessage().getChannel()
+                .subscribe(replyChannel -> {
+                    replyChannel.createMessage("▶️ | Now Playing...").subscribe();
+                    mgr.play(query, false);
+                });
+
     }
-
-/*  public void execute(MessageCreateEvent event) {
-
-  }
-*/
 }
+
+

@@ -19,7 +19,10 @@ public class CommandManager {
                     new Disconnect(),
                     new Stop(),
                     new Fuck(),
-                    new Ping()
+                    new Ping(),
+                    new Skip()
+
+//          TODO: Queue system (skip, next, prev, nowPlaying, queue)
             )
     );
 
