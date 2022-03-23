@@ -5,21 +5,15 @@ import nottyl.earwormsbot.ICommand;
 import nottyl.earwormsbot.Main;
 import nottyl.earwormsbot.lavaplayer.MusicManager;
 
-public class Skip implements ICommand {
+public class NowPlaying implements ICommand {
     @Override
     public String name() {
-        return "skip";
+        return "np";
     }
 
     @Override
     public void execute(MessageCreateEvent event) {
         final MusicManager mgr = Main.guildMusicManager.getMusicManager(event);
-
-        event.getMessage().getChannel()
-                .subscribe(ch -> {
-                    ch.createMessage("⏭ | Skipped.").subscribe();
-                    mgr.nextTrack();
-                });
+        mgr.currentSong();
     }
-
 }

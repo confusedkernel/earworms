@@ -5,30 +5,19 @@ import nottyl.earwormsbot.ICommand;
 import nottyl.earwormsbot.Main;
 import nottyl.earwormsbot.lavaplayer.MusicManager;
 
-public class Play implements ICommand {
+public class Clear implements ICommand {
     @Override
     public String name() {
-        return "play";
+        return "clear";
     }
-
-    /*TODO: New play function that taps into QueueArray and new TrackScheduler*/
-    /*TODO: Display song names*/
 
     @Override
     public void execute(MessageCreateEvent event) {
         final MusicManager mgr = Main.guildMusicManager.getMusicManager(event);
-        final String query = event.getMessage().getContent()
-                .replaceFirst("^!play", "")
-                .trim();
-
-//		TODO : youtube search
+        mgr.clear();
         event.getMessage().getChannel()
                 .subscribe(replyChannel -> {
-                    replyChannel.createMessage("🎛 | Adding to queue... ").subscribe();
-                    mgr.play(query, false);
+                    replyChannel.createMessage("🎛 | Queue cleared. ").subscribe();
                 });
-
     }
 }
-
-
