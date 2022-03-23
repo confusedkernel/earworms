@@ -14,7 +14,6 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.playback.NonAllocatingAudioFrameBuffer;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.voice.AudioProvider;
-import reactor.core.publisher.Mono;
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -61,7 +60,7 @@ public class MusicManager extends AudioEventAdapter{
                 if(!isPlaying){
                     nowPlaying(track);
                 }
-                queue(track, noInterrupt);
+                queue(track, false);
             }
 
             @Override
@@ -75,7 +74,7 @@ public class MusicManager extends AudioEventAdapter{
                 if(!isPlaying){
                     nowPlaying(firstTrack);
                 }
-                queue(tracks.remove(0), noInterrupt);
+                tracks.remove(0);
                 queue.addAll(tracks);
             }
 
@@ -95,10 +94,18 @@ public class MusicManager extends AudioEventAdapter{
         });
     }
 
+    @Override
+    public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason) {
+        if (endReason.mayStartNext) {
+            nextTrack();
+            nowPlaying(track);
+        }
+    }
+
     public void queue(AudioTrack track, boolean noInterrupt) {
         boolean isPlaying = !player.startTrack(track, true);
         if (isPlaying) {
-            this.queue.offer(track);
+            this.queue.add(track);
         }
     }
 
@@ -107,12 +114,10 @@ public class MusicManager extends AudioEventAdapter{
     }
 
     public void nextTrack() {
-        player.startTrack(queue.poll(), false);
+        player.startTrack(this.queue.poll(), false);
         final AudioTrack track = player.getPlayingTrack();
         nowPlaying(track);
-        resume();
     }
-
 
     public void pause() {
         player.setPaused(true);
@@ -141,14 +146,6 @@ public class MusicManager extends AudioEventAdapter{
             event.getMessage().getChannel()
                     .flatMap(replyChannel -> replyChannel.createMessage("🎛 | Nothing is playing..."))
                     .subscribe();
-        }
-    }
-
-    public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason) {
-        //AudioTrack currSong = player.getPlayingTrack();
-        if (endReason.mayStartNext) {
-            player.startTrack(queue.poll(), false);
-            nowPlaying(track);
         }
     }
 }
