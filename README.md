@@ -20,7 +20,7 @@ Current command list:
   - !clear
 ```
 ### Known Isssues
-Latest Version: Snapshot 220327 \
+Latest Version: Snapshot 220327 
 ```
   - auto-skip on track end is not working
 ```
