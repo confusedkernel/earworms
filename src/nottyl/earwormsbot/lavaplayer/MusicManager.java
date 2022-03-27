@@ -14,6 +14,8 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.playback.NonAllocatingAudioFrameBuffer;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.voice.AudioProvider;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -95,7 +97,7 @@ public class MusicManager extends AudioEventAdapter{
     }
 
     @Override
-    public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason) {
+    public void onTrackEnd(AudioPlayer player, AudioTrack track, @NotNull AudioTrackEndReason endReason) {
         if (endReason.mayStartNext) {
             nextTrack();
             nowPlaying(track);

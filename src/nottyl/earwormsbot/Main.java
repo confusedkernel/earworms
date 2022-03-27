@@ -3,6 +3,10 @@ package nottyl.earwormsbot;
 import discord4j.core.DiscordClientBuilder;
 import discord4j.core.GatewayDiscordClient;
 import discord4j.core.event.domain.message.MessageCreateEvent;
+import discord4j.core.object.presence.Activity;
+import discord4j.core.object.presence.ClientActivity;
+import discord4j.core.object.presence.ClientPresence;
+import discord4j.core.object.presence.Presence;
 import nottyl.earwormsbot.lavaplayer.GuildMusicManager;
 
 public class Main {
@@ -22,6 +26,7 @@ public class Main {
                 .filter(event -> event.getMessage().getAuthor().map(user -> !user.isBot()).orElse(false))
                 .subscribe(CommandManager::handle);
 
+        client.updatePresence(ClientPresence.online(ClientActivity.playing("snapshot 220327"))).subscribe();
         client.onDisconnect().block();
     }
 }

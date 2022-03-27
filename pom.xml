@@ -6,7 +6,7 @@
 
     <groupId>nottyl.earwormsbot</groupId>
     <artifactId>earworms</artifactId>
-    <version>snapshot 220213</version>
+    <version>snapshot 220327</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

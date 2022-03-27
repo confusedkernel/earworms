@@ -1,6 +1,7 @@
 package nottyl.earwormsbot.commands;
 
 import discord4j.core.event.domain.message.MessageCreateEvent;
+import discord4j.gateway.GatewayClient;
 import nottyl.earwormsbot.ICommand;
 
 
