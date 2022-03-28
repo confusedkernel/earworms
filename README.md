@@ -23,4 +23,5 @@ Current command list:
 Latest Version: Snapshot 220327 
 ```
   - auto-skip on track end is not working
+  - skip twice to get the next track playing
 ```
