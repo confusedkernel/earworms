@@ -1,7 +1,6 @@
 package nottyl.earwormsbot.lavaplayer;
 
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
-import nottyl.earwormsbot.lavaplayer.LavaPlayerAudioProvider;
 import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
@@ -27,9 +26,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class MusicManager extends AudioEventAdapter{
 
     private final AudioPlayerManager playerManager;
-    private final AudioPlayer player;
+    public final AudioPlayer player;
     private final AudioProvider provider;
-
     private final MessageCreateEvent event;
     private final Queue<AudioTrack> queue;
 
@@ -59,7 +57,7 @@ public class MusicManager extends AudioEventAdapter{
             @Override
             public void trackLoaded(AudioTrack track) {
                 boolean isPlaying = !player.startTrack(track, true);
-                if(!isPlaying){
+                if (!isPlaying) {
                     nowPlaying(track);
                 }
                 queue(track, false);
@@ -73,7 +71,7 @@ public class MusicManager extends AudioEventAdapter{
                         .subscribe();
                 AudioTrack firstTrack = playlist.getTracks().get(0);
                 boolean isPlaying = !player.startTrack(firstTrack, true);
-                if(!isPlaying){
+                if (!isPlaying) {
                     nowPlaying(firstTrack);
                 }
                 tracks.remove(0);
@@ -94,60 +92,67 @@ public class MusicManager extends AudioEventAdapter{
                         .subscribe();
             }
         });
-    }
 
-    @Override
-    public void onTrackEnd(AudioPlayer player, AudioTrack track, @NotNull AudioTrackEndReason endReason) {
-        if (endReason.mayStartNext) {
-            nextTrack();
-            nowPlaying(track);
-        }
     }
 
     public void queue(AudioTrack track, boolean noInterrupt) {
         boolean isPlaying = !player.startTrack(track, true);
-        if (isPlaying) {
+        final AudioTrack nowPlaying = player.getPlayingTrack();
+        if (isPlaying && nowPlaying != track) {
             this.queue.add(track);
+            System.out.println("added to queue");
         }
     }
 
-    public void clear(){
+    public void clear() {
         this.queue.clear();
     }
 
-    public void nextTrack() {
-        player.startTrack(this.queue.poll(), false);
-        final AudioTrack track = player.getPlayingTrack();
-        nowPlaying(track);
-    }
-
     public void pause() {
-        player.setPaused(true);
+        this.player.setPaused(true);
     }
 
     public void resume() {
-        player.setPaused(false);
+        this.player.setPaused(false);
     }
 
     public void stop() {
-        player.stopTrack();
+        this.player.stopTrack();
     }
 
-    public void currentSong(){
-        AudioTrack track = player.getPlayingTrack();
+    public void nextTrack() {
+        this.player.startTrack(this.queue.poll(), false);
+        final AudioTrack track = player.getPlayingTrack();
+        nowPlaying(track);
+        System.out.println("skipped");
+    }
+
+    public void currentSong() {
+        AudioTrack track = this.player.getPlayingTrack();
         nowPlaying(track);
     }
 
-    public void nowPlaying(AudioTrack track){
-        if(track != null){
+    public void nowPlaying(AudioTrack track) {
+        if (track != null) {
             event.getMessage().getChannel()
                     .flatMap(replyChannel -> replyChannel.createMessage("▶️ | **Now Playing:** " + track.getInfo().title))
                     .subscribe();
-        }
-        else{
+        } else {
             event.getMessage().getChannel()
                     .flatMap(replyChannel -> replyChannel.createMessage("🎛 | Nothing is playing..."))
                     .subscribe();
         }
     }
+
+    @Override
+    public void onTrackEnd(AudioPlayer player, @NotNull AudioTrack track, AudioTrackEndReason endReason) {
+        System.out.println("track ends" + track.getInfo().title + endReason.name());
+        if (endReason.mayStartNext) {
+            this.player.startTrack(this.queue.poll(), false);
+            track = player.getPlayingTrack();
+            nowPlaying(track);
+        }
+    }
+
 }
+
