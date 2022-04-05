@@ -13,7 +13,6 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.playback.NonAllocatingAudioFrameBuffer;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.voice.AudioProvider;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Queue;
@@ -26,7 +25,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class MusicManager extends AudioEventAdapter{
 
     private final AudioPlayerManager playerManager;
-    public final AudioPlayer player;
+    private final AudioPlayer player;
     private final AudioProvider provider;
     private final MessageCreateEvent event;
     private final Queue<AudioTrack> queue;
@@ -39,7 +38,7 @@ public class MusicManager extends AudioEventAdapter{
         provider = new LavaPlayerAudioProvider(player);
 
         this.event = event;
-        queue = new LinkedBlockingQueue<>();
+        this.queue = new LinkedBlockingQueue<>();
     }
 
     public AudioProvider getProvider() {
@@ -48,10 +47,10 @@ public class MusicManager extends AudioEventAdapter{
 
     /**
      * @param trackUrl    query or URL of a song
-     * @param noInterrupt interrupt the song currently playing
+     *  interrupt the song currently playing
      */
 
-    public void play(String trackUrl, boolean noInterrupt) {
+    public void play(String trackUrl) {
         playerManager.loadItemOrdered(event, trackUrl, new AudioLoadResultHandler() {
 
             @Override
@@ -60,7 +59,7 @@ public class MusicManager extends AudioEventAdapter{
                 if (!isPlaying) {
                     nowPlaying(track);
                 }
-                queue(track, false);
+                queue(track);
             }
 
             @Override
@@ -70,7 +69,7 @@ public class MusicManager extends AudioEventAdapter{
                         .flatMap(replyChannel -> replyChannel.createMessage("🎛 | Playlist loaded..."))
                         .subscribe();
                 AudioTrack firstTrack = playlist.getTracks().get(0);
-                boolean isPlaying = !player.startTrack(firstTrack, true);
+                boolean isPlaying = player.startTrack(firstTrack, true);
                 if (!isPlaying) {
                     nowPlaying(firstTrack);
                 }
@@ -95,7 +94,7 @@ public class MusicManager extends AudioEventAdapter{
 
     }
 
-    public void queue(AudioTrack track, boolean noInterrupt) {
+    public void queue(AudioTrack track) {
         boolean isPlaying = !player.startTrack(track, true);
         final AudioTrack nowPlaying = player.getPlayingTrack();
         if (isPlaying && nowPlaying != track) {
@@ -105,30 +104,29 @@ public class MusicManager extends AudioEventAdapter{
     }
 
     public void clear() {
-        this.queue.clear();
+        queue.clear();
     }
 
     public void pause() {
-        this.player.setPaused(true);
+        player.setPaused(true);
     }
 
     public void resume() {
-        this.player.setPaused(false);
+        player.setPaused(false);
     }
 
     public void stop() {
-        this.player.stopTrack();
+        player.stopTrack();
     }
 
     public void nextTrack() {
-        this.player.startTrack(this.queue.poll(), false);
-        final AudioTrack track = player.getPlayingTrack();
-        nowPlaying(track);
+        this.player.startTrack(queue.poll(), false);
+        currentSong();
         System.out.println("skipped");
     }
 
     public void currentSong() {
-        AudioTrack track = this.player.getPlayingTrack();
+        AudioTrack track = player.getPlayingTrack();
         nowPlaying(track);
     }
 
@@ -137,7 +135,8 @@ public class MusicManager extends AudioEventAdapter{
             event.getMessage().getChannel()
                     .flatMap(replyChannel -> replyChannel.createMessage("▶️ | **Now Playing:** " + track.getInfo().title))
                     .subscribe();
-        } else {
+        }
+        else {
             event.getMessage().getChannel()
                     .flatMap(replyChannel -> replyChannel.createMessage("🎛 | Nothing is playing..."))
                     .subscribe();
@@ -145,12 +144,10 @@ public class MusicManager extends AudioEventAdapter{
     }
 
     @Override
-    public void onTrackEnd(AudioPlayer player, @NotNull AudioTrack track, AudioTrackEndReason endReason) {
-        System.out.println("track ends" + track.getInfo().title + endReason.name());
+    public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason) {
         if (endReason.mayStartNext) {
-            this.player.startTrack(this.queue.poll(), false);
-            track = player.getPlayingTrack();
-            nowPlaying(track);
+            player.startTrack(queue.poll(), false);
+            currentSong();
         }
     }
 

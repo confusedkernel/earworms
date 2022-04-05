@@ -6,7 +6,7 @@
 
     <groupId>nottyl.earwormsbot</groupId>
     <artifactId>earworms</artifactId>
-    <version>snapshot 220329</version>
+    <version>snapshot 220407</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -30,25 +30,25 @@
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-common</artifactId>
-            <version>4.1.70.Final</version>
+            <version>4.1.75.Final</version>
         </dependency>
 
         <dependency>
             <groupId>com.discord4j</groupId>
             <artifactId>discord4j-core</artifactId>
-            <version>3.2.1</version>
+            <version>3.2.2</version>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.35</version>
+            <version>1.7.36</version>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>1.7.35</version>
+            <version>1.7.36</version>
         </dependency>
 
         <dependency>
@@ -60,13 +60,13 @@
         <dependency>
             <groupId>io.github.cdimascio</groupId>
             <artifactId>java-dotenv</artifactId>
-            <version>5.1.4</version>
+            <version>5.2.2</version>
         </dependency>
 
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>RELEASE</version>
+            <version>23.0.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

@@ -24,7 +24,7 @@ public class CommandManager {
                     new NowPlaying(),
                     new Clear()
 
-//          TODO: Queue system (skip, next, prev, nowPlaying, queue)
+                    /* TODO: Queue system (next, prev, queue) */
             )
     );
 

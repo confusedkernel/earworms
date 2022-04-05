@@ -12,7 +12,6 @@ public class Play implements ICommand {
     }
 
     /*TODO: New play function that taps into QueueArray and new TrackScheduler*/
-    /*TODO: Display song names*/
 
     @Override
     public void execute(MessageCreateEvent event) {
@@ -25,9 +24,8 @@ public class Play implements ICommand {
         event.getMessage().getChannel()
                 .subscribe(replyChannel -> {
                     replyChannel.createMessage("🎛 | Adding to queue... ").subscribe();
-                    mgr.play(query, false);
                 });
-
+        mgr.play(query);
     }
 }
 
