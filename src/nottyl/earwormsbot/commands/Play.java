@@ -24,8 +24,9 @@ public class Play implements ICommand {
         event.getMessage().getChannel()
                 .subscribe(replyChannel -> {
                     replyChannel.createMessage("🎛 | Adding to queue... ").subscribe();
+                    mgr.play(query);
                 });
-        mgr.play(query);
+
     }
 }
 

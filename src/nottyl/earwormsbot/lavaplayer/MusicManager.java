@@ -1,15 +1,15 @@
 package nottyl.earwormsbot.lavaplayer;
 
-import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
-import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
+import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
 import com.sedmelluq.discord.lavaplayer.track.playback.NonAllocatingAudioFrameBuffer;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.voice.AudioProvider;
@@ -119,12 +119,6 @@ public class MusicManager extends AudioEventAdapter{
         player.stopTrack();
     }
 
-    public void nextTrack() {
-        this.player.startTrack(queue.poll(), false);
-        currentSong();
-        System.out.println("skipped");
-    }
-
     public void currentSong() {
         AudioTrack track = player.getPlayingTrack();
         nowPlaying(track);
@@ -143,10 +137,17 @@ public class MusicManager extends AudioEventAdapter{
         }
     }
 
+    public void nextTrack() {
+        this.player.startTrack(queue.poll(), false);
+        currentSong();
+        System.out.println("skipped");
+    }
+
     @Override
     public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason) {
-        if (endReason.mayStartNext) {
-            player.startTrack(queue.poll(), false);
+        System.out.println("does it work?");
+        if (endReason == AudioTrackEndReason.FINISHED) {
+            nextTrack();
             currentSong();
         }
     }

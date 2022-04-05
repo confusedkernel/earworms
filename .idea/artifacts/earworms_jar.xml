@@ -60,6 +60,7 @@
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/discord4j/stores-api/3.2.1/stores-api-3.2.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/errorprone/error_prone_annotations/2.4.0/error_prone_annotations-2.4.0.jar" path-in-jar="/" />
       <element id="file-copy" path="$PROJECT_DIR$/.env" />
+      <element id="library" level="project" name="Maven: com.github.idpromnut:lavaplayer:1.3.78" />
     </root>
   </artifact>
 </component>
