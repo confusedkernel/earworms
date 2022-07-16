@@ -20,7 +20,7 @@ Current command list:
   - !clear
 ```
 #### Known Issues
-Latest Version: *Snapshot 220407*
+Latest Version: *Snapshot 220716*
 ```
-  - auto-skip on track end is not working
+  - auto-skip on track end will not report new playing track
 ```
