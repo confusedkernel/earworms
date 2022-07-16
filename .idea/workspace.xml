@@ -9,15 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ecc4c66a-cbdb-4d18-aea6-9c96abcb4d57" name="Changes" comment="Snapshot 220405">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_idpromnut_lavaplayer_youtube_details_parse_bug_045c407f77_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/earworms_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/earworms_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sedmelluq_lavaplayer_1_3_78.xml" beforeDir="false" />
+    <list default="true" id="ecc4c66a-cbdb-4d18-aea6-9c96abcb4d57" name="Changes" comment="Snapshot 220716&#10;- uh oh new stuff incoming">
+      <change afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/TrackScheduler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/earworms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/earworms.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Play.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/GuildMusicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/GuildMusicManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/MusicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/MusicManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,20 +55,12 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="JAVA" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15160075" />
-    <property name="project.structure.side.proportion" value="0.21178344" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -142,7 +131,21 @@
       <workItem from="1649150822685" duration="257000" />
       <workItem from="1649216348219" duration="36000" />
       <workItem from="1649222580583" duration="6051000" />
-      <workItem from="1649321572584" duration="549000" />
+      <workItem from="1649321572584" duration="3073000" />
+      <workItem from="1649400040825" duration="1277000" />
+      <workItem from="1649401678339" duration="302000" />
+      <workItem from="1649522161623" duration="103000" />
+      <workItem from="1650621810624" duration="8000" />
+      <workItem from="1650622545434" duration="469000" />
+      <workItem from="1652326125150" duration="62000" />
+      <workItem from="1652327389723" duration="21000" />
+      <workItem from="1657183618948" duration="1326000" />
+      <workItem from="1657685348095" duration="801000" />
+      <workItem from="1657686248375" duration="9000" />
+      <workItem from="1657864973981" duration="610000" />
+      <workItem from="1657870792064" duration="629000" />
+      <workItem from="1657939495211" duration="250000" />
+      <workItem from="1657950453559" duration="1306000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring">
       <created>1648536739305</created>
@@ -158,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649150734489</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Snapshot 220407&#10;- fixes youtube details parse bug">
+      <created>1649322488736</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1649322488736</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +199,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactoring" />
     <MESSAGE value="Snapshot 220405" />
-    <option name="LAST_COMMIT_MESSAGE" value="Snapshot 220405" />
+    <MESSAGE value="Snapshot 220407&#10;- fixes youtube details parse bug" />
+    <MESSAGE value="Snapshot 220716&#10;- uh oh new stuff incoming" />
+    <option name="LAST_COMMIT_MESSAGE" value="Snapshot 220716&#10;- uh oh new stuff incoming" />
   </component>
 </project>

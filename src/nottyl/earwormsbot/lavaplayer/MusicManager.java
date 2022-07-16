@@ -28,18 +28,22 @@ public class MusicManager extends AudioEventAdapter{
     private final AudioPlayer player;
     private final AudioProvider provider;
     private final MessageCreateEvent event;
-    private final Queue<AudioTrack> queue;
+
+
+    private final TrackScheduler scheduler;
 
     public MusicManager(MessageCreateEvent event) {
         playerManager = new DefaultAudioPlayerManager();
         playerManager.getConfiguration().setFrameBufferFactory(NonAllocatingAudioFrameBuffer::new);
         AudioSourceManagers.registerRemoteSources(playerManager);
         player = playerManager.createPlayer();
+        scheduler = new TrackScheduler(player);
+        player.addListener(scheduler);
         provider = new LavaPlayerAudioProvider(player);
-
         this.event = event;
-        this.queue = new LinkedBlockingQueue<>();
     }
+
+
 
     public AudioProvider getProvider() {
         return provider;
@@ -59,7 +63,7 @@ public class MusicManager extends AudioEventAdapter{
                 if (!isPlaying) {
                     nowPlaying(track);
                 }
-                queue(track);
+                scheduler.queue(track);
             }
 
             @Override
@@ -73,8 +77,8 @@ public class MusicManager extends AudioEventAdapter{
                 if (!isPlaying) {
                     nowPlaying(firstTrack);
                 }
-                tracks.remove(0);
-                queue.addAll(tracks);
+                scheduler.queue(tracks.remove(0));
+                scheduler.queue.offer((AudioTrack) tracks);
             }
 
             @Override
@@ -94,18 +98,6 @@ public class MusicManager extends AudioEventAdapter{
 
     }
 
-    public void queue(AudioTrack track) {
-        boolean isPlaying = !player.startTrack(track, true);
-        final AudioTrack nowPlaying = player.getPlayingTrack();
-        if (isPlaying && nowPlaying != track) {
-            this.queue.add(track);
-            System.out.println("added to queue");
-        }
-    }
-
-    public void clear() {
-        queue.clear();
-    }
 
     public void pause() {
         player.setPaused(true);
@@ -119,9 +111,16 @@ public class MusicManager extends AudioEventAdapter{
         player.stopTrack();
     }
 
+    public void clear(){scheduler.clear();}
+
     public void currentSong() {
         AudioTrack track = player.getPlayingTrack();
         nowPlaying(track);
+    }
+
+    public void nextTrack(){
+        scheduler.next();
+        currentSong();
     }
 
     public void nowPlaying(AudioTrack track) {
@@ -134,21 +133,6 @@ public class MusicManager extends AudioEventAdapter{
             event.getMessage().getChannel()
                     .flatMap(replyChannel -> replyChannel.createMessage("🎛 | Nothing is playing..."))
                     .subscribe();
-        }
-    }
-
-    public void nextTrack() {
-        this.player.startTrack(queue.poll(), false);
-        currentSong();
-        System.out.println("skipped");
-    }
-
-    @Override
-    public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason) {
-        System.out.println("does it work?");
-        if (endReason == AudioTrackEndReason.FINISHED) {
-            nextTrack();
-            currentSong();
         }
     }
 

@@ -24,7 +24,7 @@ public class Main {
                 .filter(event -> event.getMessage().getAuthor().map(user -> !user.isBot()).orElse(false))
                 .subscribe(CommandManager::handle);
 
-        client.updatePresence(ClientPresence.online(ClientActivity.playing("Snapshot 220407"))).subscribe();
+        client.updatePresence(ClientPresence.online(ClientActivity.playing("Beta?"))).subscribe();
         client.onDisconnect().block();
     }
 }
