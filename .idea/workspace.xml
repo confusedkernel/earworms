@@ -10,12 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecc4c66a-cbdb-4d18-aea6-9c96abcb4d57" name="Changes" comment="Snapshot 220716&#10;- uh oh new stuff incoming">
-      <change afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/TrackScheduler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/GuildMusicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/GuildMusicManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/MusicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/MusicManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/TrackScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/TrackScheduler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +144,9 @@
       <workItem from="1657864973981" duration="610000" />
       <workItem from="1657870792064" duration="629000" />
       <workItem from="1657939495211" duration="250000" />
-      <workItem from="1657950453559" duration="1306000" />
+      <workItem from="1657950453559" duration="1696000" />
+      <workItem from="1657961670943" duration="4365000" />
+      <workItem from="1658142106600" duration="462000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring">
       <created>1648536739305</created>
@@ -168,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649322488736</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Snapshot 220716&#10;- uh oh new stuff incoming">
+      <created>1657951828137</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657951828137</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -9,14 +9,11 @@ import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
-import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
 import com.sedmelluq.discord.lavaplayer.track.playback.NonAllocatingAudioFrameBuffer;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.voice.AudioProvider;
 
 import java.util.List;
-import java.util.Queue;
-import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Manages playerManager, player, and audioProvider of a specific guild.
@@ -27,7 +24,7 @@ public class MusicManager extends AudioEventAdapter{
     private final AudioPlayerManager playerManager;
     private final AudioPlayer player;
     private final AudioProvider provider;
-    private final MessageCreateEvent event;
+    public final MessageCreateEvent event;
 
 
     private final TrackScheduler scheduler;
@@ -118,6 +115,7 @@ public class MusicManager extends AudioEventAdapter{
         nowPlaying(track);
     }
 
+
     public void nextTrack(){
         scheduler.next();
         currentSong();
@@ -135,6 +133,7 @@ public class MusicManager extends AudioEventAdapter{
                     .subscribe();
         }
     }
+
 
 }
 

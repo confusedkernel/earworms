@@ -4,12 +4,8 @@ import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
-import discord4j.core.event.domain.message.MessageCreateEvent;
-import discord4j.core.object.entity.channel.MessageChannel;
-import nottyl.earwormsbot.Main;
 
 import java.util.Queue;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 
@@ -41,14 +37,11 @@ public class TrackScheduler extends AudioEventAdapter{
         System.out.println("skipped");
     }
 
-
-
     @Override
     public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason) {
         if (endReason == AudioTrackEndReason.FINISHED) {
             next();
-            /*final MusicManager mgr = Main.guildMusicManager.getMusicManager((MessageCreateEvent) track);
-            mgr.currentSong();*/
+            System.out.println("on track end, next track");
         }
     }
 }
