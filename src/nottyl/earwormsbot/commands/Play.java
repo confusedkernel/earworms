@@ -1,6 +1,7 @@
 package nottyl.earwormsbot.commands;
 
 import discord4j.core.event.domain.message.MessageCreateEvent;
+import discord4j.core.spec.EmbedCreateSpec;
 import nottyl.earwormsbot.ICommand;
 import nottyl.earwormsbot.Main;
 import nottyl.earwormsbot.lavaplayer.MusicManager;
@@ -21,9 +22,13 @@ public class Play implements ICommand {
                 .trim();
 
 //		TODO : youtube search
+        EmbedCreateSpec embed = EmbedCreateSpec.builder()
+                .title("🎛")
+                .description("Adding to queue")
+                .build();
         event.getMessage().getChannel()
                 .subscribe(replyChannel -> {
-                    replyChannel.createMessage("🎛 | Adding to queue... ").subscribe();
+                    replyChannel.createMessage(embed).subscribe();
                     mgr.play(query);
                 });
 

@@ -18,13 +18,17 @@ public class CommandManager {
                     new Resume(),
                     new Disconnect(),
                     new Stop(),
-                    new Fuck(),
+                    new Gay(),
                     new Ping(),
                     new Skip(),
                     new NowPlaying(),
                     new Clear()
 
-                    /* TODO: Queue system (next, prev, queue) */
+                    /* TODO:
+                        View queues,
+                        Embed builder,
+                        Youtube search,
+                        SoundCloud integration. */
             )
     );
 

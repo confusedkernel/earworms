@@ -4,6 +4,11 @@ import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
+import discord4j.common.util.Snowflake;
+import discord4j.core.event.domain.message.MessageCreateEvent;
+import discord4j.core.spec.EmbedCreateSpec;
+import reactor.core.publisher.Mono;
+import discord4j.core.object.Embed;
 
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -41,6 +46,7 @@ public class TrackScheduler extends AudioEventAdapter{
     public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason) {
         if (endReason == AudioTrackEndReason.FINISHED) {
             next();
+            AudioTrack current = player.getPlayingTrack();
             System.out.println("on track end, next track");
         }
     }

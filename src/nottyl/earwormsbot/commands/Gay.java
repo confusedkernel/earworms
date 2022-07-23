@@ -7,17 +7,17 @@ import discord4j.core.object.entity.channel.VoiceChannel;
 import nottyl.earwormsbot.ICommand;
 import reactor.core.publisher.Mono;
 
-public class Fuck implements ICommand {
+public class Gay implements ICommand {
     @Override
     public String name() {
-        return "fuck";
+        return "gay";
     }
 
     @Override
     public void execute(MessageCreateEvent event) {
         event.getMessage()
                 .getChannel().block()
-                .createMessage("🖕 | After everything I've done for you?").block();
+                .createMessage("🖕 | Ya Gay").block();
         Mono.justOrEmpty(event.getMember())
                 .flatMap(Member::getVoiceState)
                 .flatMap(VoiceState::getChannel)

@@ -11,8 +11,10 @@ import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.playback.NonAllocatingAudioFrameBuffer;
 import discord4j.core.event.domain.message.MessageCreateEvent;
+import discord4j.core.spec.EmbedCreateSpec;
 import discord4j.voice.AudioProvider;
 
+import java.time.Instant;
 import java.util.List;
 
 /**
@@ -66,8 +68,12 @@ public class MusicManager extends AudioEventAdapter{
             @Override
             public void playlistLoaded(AudioPlaylist playlist) {
                 final List<AudioTrack> tracks = playlist.getTracks();
+                EmbedCreateSpec embed = EmbedCreateSpec.builder()
+                        .title("🎛")
+                        .description("Loaded" + playlist.getTracks().size() + "songs")
+                        .build();
                 event.getMessage().getChannel()
-                        .flatMap(replyChannel -> replyChannel.createMessage("🎛 | Playlist loaded..."))
+                        .flatMap(replyChannel -> replyChannel.createMessage(embed))
                         .subscribe();
                 AudioTrack firstTrack = playlist.getTracks().get(0);
                 boolean isPlaying = player.startTrack(firstTrack, true);
@@ -80,15 +86,23 @@ public class MusicManager extends AudioEventAdapter{
 
             @Override
             public void noMatches() {
+                EmbedCreateSpec embed = EmbedCreateSpec.builder()
+                        .title("🎛")
+                        .description("Error: No matches...")
+                        .build();
                 event.getMessage().getChannel()
-                        .flatMap(replyChannel -> replyChannel.createMessage("🎛 | No matches..."))
+                        .flatMap(replyChannel -> replyChannel.createMessage(embed))
                         .subscribe();
             }
 
             @Override
             public void loadFailed(FriendlyException exception) {
+                EmbedCreateSpec embed = EmbedCreateSpec.builder()
+                        .title("🎛")
+                        .description("Error: Something went wrong... Please try again")
+                        .build();
                 event.getMessage().getChannel()
-                        .flatMap(replyChannel -> replyChannel.createMessage("🎛 | Something went wrong... Please try again"))
+                        .flatMap(replyChannel -> replyChannel.createMessage(embed))
                         .subscribe();
             }
         });
@@ -123,13 +137,21 @@ public class MusicManager extends AudioEventAdapter{
 
     public void nowPlaying(AudioTrack track) {
         if (track != null) {
+            EmbedCreateSpec embed = EmbedCreateSpec.builder()
+                    .title("🎛 | Now Playing")
+                    .description(track.getInfo().title)
+                    .build();
             event.getMessage().getChannel()
-                    .flatMap(replyChannel -> replyChannel.createMessage("▶️ | **Now Playing:** " + track.getInfo().title))
+                    .flatMap(replyChannel -> replyChannel.createMessage(embed))
                     .subscribe();
         }
         else {
+            EmbedCreateSpec embed = EmbedCreateSpec.builder()
+                    .title("🎛 | Now Playing")
+                    .description("Nothing is playing...")
+                    .build();
             event.getMessage().getChannel()
-                    .flatMap(replyChannel -> replyChannel.createMessage("🎛 | Nothing is playing..."))
+                    .flatMap(replyChannel -> replyChannel.createMessage(embed))
                     .subscribe();
         }
     }
