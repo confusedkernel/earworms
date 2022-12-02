@@ -9,13 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ecc4c66a-cbdb-4d18-aea6-9c96abcb4d57" name="Changes" comment="Snapshot 220718&#10;- uh oh new stuff incoming">
+    <list default="true" id="ecc4c66a-cbdb-4d18-aea6-9c96abcb4d57" name="Changes" comment="Snapshot 220723&#10;- added embed for some functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/CommandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Fuck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Gay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Play.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/MusicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/MusicManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/TrackScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/TrackScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Ping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Ping.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,12 +52,17 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/tyleryeh/IntelliJ/earwormsbot",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -154,6 +156,12 @@
       <workItem from="1658541095566" duration="394000" />
       <workItem from="1658552340629" duration="81000" />
       <workItem from="1658553039143" duration="4020000" />
+      <workItem from="1658558228380" duration="86000" />
+      <workItem from="1658558615902" duration="717000" />
+      <workItem from="1658568293196" duration="148000" />
+      <workItem from="1663915573144" duration="2000" />
+      <workItem from="1669707908621" duration="366000" />
+      <workItem from="1669959728147" duration="311000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring">
       <created>1648536739305</created>
@@ -190,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658142585801</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Snapshot 220723&#10;- added embed for some functions">
+      <created>1658558269091</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1658558269091</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +239,7 @@
     <MESSAGE value="Snapshot 220407&#10;- fixes youtube details parse bug" />
     <MESSAGE value="Snapshot 220716&#10;- uh oh new stuff incoming" />
     <MESSAGE value="Snapshot 220718&#10;- uh oh new stuff incoming" />
-    <option name="LAST_COMMIT_MESSAGE" value="Snapshot 220718&#10;- uh oh new stuff incoming" />
+    <MESSAGE value="Snapshot 220723&#10;- added embed for some functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Snapshot 220723&#10;- added embed for some functions" />
   </component>
 </project>

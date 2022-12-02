@@ -18,7 +18,6 @@ public class CommandManager {
                     new Resume(),
                     new Disconnect(),
                     new Stop(),
-                    new Gay(),
                     new Ping(),
                     new Skip(),
                     new NowPlaying(),
