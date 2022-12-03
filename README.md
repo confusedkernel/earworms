@@ -1,4 +1,8 @@
 ## Earworms Bot
+
+| :bangbang: | Earworms is currently undergoing a full rewrite. I will try to finish the rewrite before Feb. 2023! |
+| :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
 A self-made Discord music bot with Discord4j. \
 Made by [@nottyl](https://www.github.com/nottyl) on GitHub
 #### How to use
