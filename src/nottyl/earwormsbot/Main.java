@@ -24,7 +24,7 @@ public class Main {
                 .filter(event -> event.getMessage().getAuthor().map(user -> !user.isBot()).orElse(false))
                 .subscribe(CommandManager::handle);
 
-        client.updatePresence(ClientPresence.online(ClientActivity.listening("Glitch - Taylor Swift"))).subscribe();
+        client.updatePresence(ClientPresence.online(ClientActivity.listening("Snapshot 221207"))).subscribe();
         client.onDisconnect().block();
     }
 }
