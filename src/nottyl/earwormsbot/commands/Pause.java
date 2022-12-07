@@ -1,15 +1,13 @@
 package nottyl.earwormsbot.commands;
 
 import discord4j.core.event.domain.message.MessageCreateEvent;
-import discord4j.core.object.Embed;
 import discord4j.core.spec.EmbedCreateSpec;
 import discord4j.rest.util.Color;
 import nottyl.earwormsbot.ICommand;
 import nottyl.earwormsbot.Main;
 import nottyl.earwormsbot.lavaplayer.MusicManager;
-import reactor.core.publisher.Mono;
 
-import java.util.Arrays;
+import java.util.Objects;
 
 public class Pause implements ICommand {
 
@@ -30,8 +28,7 @@ public class Pause implements ICommand {
                 .color(Color.ORANGE)
                 .title("Track Paused")
                 .build();
-        event.getMessage()
-                .getChannel().block()
+        Objects.requireNonNull(event.getMessage().getChannel().block())
                 .createMessage(embed)
                 .block();
     }

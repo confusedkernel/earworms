@@ -7,6 +7,8 @@ import nottyl.earwormsbot.ICommand;
 import nottyl.earwormsbot.Main;
 import nottyl.earwormsbot.lavaplayer.MusicManager;
 
+import java.util.Objects;
+
 public class Skip implements ICommand {
     @Override
     public String name() {
@@ -24,8 +26,7 @@ public class Skip implements ICommand {
                             .color(Color.ORANGE)
                             .title("Track Skipped")
                             .build();
-                    event.getMessage()
-                            .getChannel().block()
+                    Objects.requireNonNull(event.getMessage().getChannel().block())
                             .createMessage(embed)
                             .block();
                     mgr.nextTrack();

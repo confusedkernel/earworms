@@ -9,13 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ecc4c66a-cbdb-4d18-aea6-9c96abcb4d57" name="Changes" comment="Update pom.xml">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Clear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Clear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Disconnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Disconnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Join.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Join.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Ping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Ping.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Play.java" afterDir="false" />
+    <list default="true" id="ecc4c66a-cbdb-4d18-aea6-9c96abcb4d57" name="Changes" comment="Minor bug fixes">
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Pause.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Pause.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Skip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Skip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Stop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Stop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/MusicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/MusicManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +178,7 @@
       <workItem from="1669965686864" duration="99000" />
       <workItem from="1670031345696" duration="88000" />
       <workItem from="1670386938620" duration="62000" />
-      <workItem from="1670387108900" duration="1139000" />
+      <workItem from="1670387108900" duration="1536000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring">
       <created>1648536739305</created>
@@ -246,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670389638650</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Minor bug fixes">
+      <created>1670390071743</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670390071743</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +288,7 @@
     <MESSAGE value="Snapshot 221202&#10;- minor fixes&#10;- more embeds" />
     <MESSAGE value="Snapshot 221207&#10;- minor fixes&#10;- more embeds" />
     <MESSAGE value="Update pom.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update pom.xml" />
+    <MESSAGE value="Minor bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor bug fixes" />
   </component>
 </project>

@@ -14,8 +14,6 @@ import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.spec.EmbedCreateSpec;
 import discord4j.rest.util.Color;
 import discord4j.voice.AudioProvider;
-
-import java.time.Instant;
 import java.util.List;
 
 /**
