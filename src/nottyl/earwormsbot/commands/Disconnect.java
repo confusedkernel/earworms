@@ -24,7 +24,7 @@ public class Disconnect implements ICommand {
                 .block();
         EmbedCreateSpec embed;
         embed = EmbedCreateSpec.builder()
-                .color(Color.BLUE)
+                .color(Color.SUMMER_SKY)
                 .title("Disconnected from the Voice Channel")
                 .build();
         event.getMessage()

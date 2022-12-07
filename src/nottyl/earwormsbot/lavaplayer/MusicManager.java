@@ -70,7 +70,8 @@ public class MusicManager extends AudioEventAdapter{
             public void playlistLoaded(AudioPlaylist playlist) {
                 final List<AudioTrack> tracks = playlist.getTracks();
                 EmbedCreateSpec embed = EmbedCreateSpec.builder()
-                        .title("🎛")
+                        .color(Color.SUMMER_SKY)
+                        .title("Playlist Loaded!")
                         .description("Loaded" + playlist.getTracks().size() + "songs")
                         .build();
                 event.getMessage().getChannel()
@@ -88,7 +89,8 @@ public class MusicManager extends AudioEventAdapter{
             @Override
             public void noMatches() {
                 EmbedCreateSpec embed = EmbedCreateSpec.builder()
-                        .title("🎛")
+                        .color(Color.RED)
+                        .title("Error")
                         .description("Error: No matches...")
                         .build();
                 event.getMessage().getChannel()
@@ -99,7 +101,8 @@ public class MusicManager extends AudioEventAdapter{
             @Override
             public void loadFailed(FriendlyException exception) {
                 EmbedCreateSpec embed = EmbedCreateSpec.builder()
-                        .title("🎛")
+                        .color(Color.RED)
+                        .title("Error")
                         .description("Error: Something went wrong... Please try again")
                         .build();
                 event.getMessage().getChannel()
@@ -139,8 +142,8 @@ public class MusicManager extends AudioEventAdapter{
     public void nowPlaying(AudioTrack track) {
         if (track != null) {
             EmbedCreateSpec embed = EmbedCreateSpec.builder()
-                    .color(Color.BLUE)
-                    .title("🎛 | Now Playing")
+                    .color(Color.SEA_GREEN)
+                    .title("Now Playing")
                     .description(track.getInfo().title)
                     .build();
             event.getMessage().getChannel()
@@ -150,7 +153,7 @@ public class MusicManager extends AudioEventAdapter{
         else {
             EmbedCreateSpec embed = EmbedCreateSpec.builder()
                     .color(Color.RED)
-                    .title("🎛 | Now Playing")
+                    .title("Now Playing")
                     .description("Nothing is playing...")
                     .build();
             event.getMessage().getChannel()
@@ -158,7 +161,5 @@ public class MusicManager extends AudioEventAdapter{
                     .subscribe();
         }
     }
-
-
 }
 

@@ -19,7 +19,7 @@ public class Clear implements ICommand {
         mgr.clear();
         EmbedCreateSpec embed;
         embed = EmbedCreateSpec.builder()
-                .color(Color.BLUE)
+                .color(Color.SUMMER_SKY)
                 .title("Queue cleared")
                 .build();
         event.getMessage()

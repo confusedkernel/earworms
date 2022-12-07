@@ -45,7 +45,6 @@ public class Ping implements ICommand {
                     .description(ping + "ms")
                     .build();
         }
-
         event.getMessage()
                 .getChannel().block()
                 .createMessage(embed)

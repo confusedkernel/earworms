@@ -37,7 +37,7 @@ public class Join implements ICommand {
                 });
         EmbedCreateSpec embed;
         embed = EmbedCreateSpec.builder()
-                .color(Color.BLUE)
+                .color(Color.SUMMER_SKY)
                 .title("Joined the Voice Channel")
                 .build();
         event.getMessage()
