@@ -9,10 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ecc4c66a-cbdb-4d18-aea6-9c96abcb4d57" name="Changes" comment="Snapshot 220723&#10;- added embed for some functions">
+    <list default="true" id="ecc4c66a-cbdb-4d18-aea6-9c96abcb4d57" name="Changes" comment="Snapshot 221202&#10;- minor fixes&#10;- more embeds">
+      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Ping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Ping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Clear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Clear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Disconnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Disconnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Hello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Hello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Join.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Join.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Resume.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Resume.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Skip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/commands/Skip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/MusicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nottyl/earwormsbot/lavaplayer/MusicManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +37,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="jda" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -52,17 +63,21 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/tyleryeh/IntelliJ/earwormsbot",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/tyleryeh/IntelliJ/earwormsbot&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -101,6 +116,8 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Java Scratch.Scratch" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Java Scratch.Scratch" />
       </list>
@@ -161,7 +178,11 @@
       <workItem from="1658568293196" duration="148000" />
       <workItem from="1663915573144" duration="2000" />
       <workItem from="1669707908621" duration="366000" />
-      <workItem from="1669959728147" duration="311000" />
+      <workItem from="1669959728147" duration="1081000" />
+      <workItem from="1669965686864" duration="99000" />
+      <workItem from="1670031345696" duration="88000" />
+      <workItem from="1670386938620" duration="62000" />
+      <workItem from="1670387108900" duration="463000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring">
       <created>1648536739305</created>
@@ -205,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658558269091</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Snapshot 221202&#10;- minor fixes&#10;- more embeds">
+      <created>1669960494365</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669960494365</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +268,7 @@
     <MESSAGE value="Snapshot 220716&#10;- uh oh new stuff incoming" />
     <MESSAGE value="Snapshot 220718&#10;- uh oh new stuff incoming" />
     <MESSAGE value="Snapshot 220723&#10;- added embed for some functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Snapshot 220723&#10;- added embed for some functions" />
+    <MESSAGE value="Snapshot 221202&#10;- minor fixes&#10;- more embeds" />
+    <option name="LAST_COMMIT_MESSAGE" value="Snapshot 221202&#10;- minor fixes&#10;- more embeds" />
   </component>
 </project>

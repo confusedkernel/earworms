@@ -16,6 +16,6 @@ public class Hello implements ICommand {
     public void execute(MessageCreateEvent event) {
         event.getMessage()
                 .getChannel().block()
-                .createMessage("👋 | Hello to you too!").block();
+                .createMessage("Hi! I'm online right now.").block();
     }
 }

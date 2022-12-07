@@ -12,6 +12,7 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.playback.NonAllocatingAudioFrameBuffer;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.spec.EmbedCreateSpec;
+import discord4j.rest.util.Color;
 import discord4j.voice.AudioProvider;
 
 import java.time.Instant;
@@ -138,6 +139,7 @@ public class MusicManager extends AudioEventAdapter{
     public void nowPlaying(AudioTrack track) {
         if (track != null) {
             EmbedCreateSpec embed = EmbedCreateSpec.builder()
+                    .color(Color.BLUE)
                     .title("🎛 | Now Playing")
                     .description(track.getInfo().title)
                     .build();
@@ -147,6 +149,7 @@ public class MusicManager extends AudioEventAdapter{
         }
         else {
             EmbedCreateSpec embed = EmbedCreateSpec.builder()
+                    .color(Color.RED)
                     .title("🎛 | Now Playing")
                     .description("Nothing is playing...")
                     .build();

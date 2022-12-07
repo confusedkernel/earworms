@@ -4,6 +4,8 @@ import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.object.VoiceState;
 import discord4j.core.object.entity.Member;
 import discord4j.core.object.entity.channel.VoiceChannel;
+import discord4j.core.spec.EmbedCreateSpec;
+import discord4j.rest.util.Color;
 import nottyl.earwormsbot.ICommand;
 import reactor.core.publisher.Mono;
 
@@ -20,8 +22,14 @@ public class Disconnect implements ICommand {
                 .flatMap(VoiceState::getChannel)
                 .flatMap(VoiceChannel::sendDisconnectVoiceState)
                 .block();
+        EmbedCreateSpec embed;
+        embed = EmbedCreateSpec.builder()
+                .color(Color.BLUE)
+                .title("Disconnected from the Voice Channel")
+                .build();
         event.getMessage()
                 .getChannel().block()
-                .createMessage("🎛 | Disconnected from the Voice Channel").block();
+                .createMessage(embed)
+                .block();
     }
 }

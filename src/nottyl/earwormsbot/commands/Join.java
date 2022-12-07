@@ -5,6 +5,8 @@ import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.object.VoiceState;
 import discord4j.core.object.entity.Member;
 import discord4j.core.object.entity.channel.MessageChannel;
+import discord4j.core.spec.EmbedCreateSpec;
+import discord4j.rest.util.Color;
 import discord4j.voice.AudioProvider;
 import nottyl.earwormsbot.ICommand;
 import nottyl.earwormsbot.Main;
@@ -32,8 +34,16 @@ public class Join implements ICommand {
                 .flatMap(VoiceState::getChannel)
                 .subscribe(voiceChannel -> {
                     voiceChannel.join(spec -> spec.setProvider(provider)).subscribe();
-                    textChannel.subscribe(replyChannel -> replyChannel.createMessage("🎛 | Joined the Voice Channel").subscribe());
                 });
+        EmbedCreateSpec embed;
+        embed = EmbedCreateSpec.builder()
+                .color(Color.BLUE)
+                .title("Joined the Voice Channel")
+                .build();
+        event.getMessage()
+                .getChannel().block()
+                .createMessage(embed)
+                .block();
 
     }
 }
