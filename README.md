@@ -1,4 +1,8 @@
 ## Earworms Bot
+
+| :bangbang: | Earworms is currently undergoing a full rewrite. I will try to finish the rewrite before Feb. 2023! |
+| :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
 A self-made Discord music bot with Discord4j. \
 Made by [@nottyl](https://www.github.com/nottyl) on GitHub
 #### How to use
@@ -19,11 +23,4 @@ Current command list:
   - !np
   - !clear
 ```
-#### Known Issues
-Latest Version: *Snapshot 220716*
-```
-  - auto-skip on track end will not report new playing track
-```
 
-#### Announcement
-I'm abandoning Discord4J and currently working on a new version written with JDA, hopefully I can put it out by the end of the year.
