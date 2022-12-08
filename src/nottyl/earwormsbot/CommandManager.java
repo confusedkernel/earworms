@@ -21,6 +21,7 @@ public class CommandManager {
                     new Ping(),
                     new Skip(),
                     new NowPlaying(),
+                    new Info(),
                     new Clear()
 
                     /* TODO:

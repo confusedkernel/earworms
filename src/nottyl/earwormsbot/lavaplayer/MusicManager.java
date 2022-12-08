@@ -11,6 +11,7 @@ import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.playback.NonAllocatingAudioFrameBuffer;
 import discord4j.core.event.domain.message.MessageCreateEvent;
+import discord4j.core.object.Embed;
 import discord4j.core.spec.EmbedCreateSpec;
 import discord4j.rest.util.Color;
 import discord4j.voice.AudioProvider;
@@ -158,6 +159,11 @@ public class MusicManager extends AudioEventAdapter{
                     .flatMap(replyChannel -> replyChannel.createMessage(embed))
                     .subscribe();
         }
+    }
+
+    public void info(){
+        currentSong();
+        //TODO: Implement Queue feature and use buttons to navigate
     }
 }
 
