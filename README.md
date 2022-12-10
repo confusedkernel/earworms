@@ -22,5 +22,6 @@ Current command list:
   - !skip
   - !np
   - !clear
+  - !info
 ```
 
