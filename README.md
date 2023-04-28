@@ -1,6 +1,6 @@
 ## Earworms Bot
 
-| :bangbang: | Earworms is currently undergoing a full rewrite. I will try to finish the rewrite before Feb. 2023! |
+| :bangbang: | I'm attempting to rewrite it using JDA |
 | :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 A self-made Discord music bot with Discord4j. \
