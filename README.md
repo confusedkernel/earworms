@@ -1,6 +1,6 @@
 ## Earworms Bot
 
-| :bangbang: | I'm attempting to rewrite it using JDA |
+| :bangbang: | I'm trying to rewrite it, this code looks hideous |
 | :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 A self-made Discord music bot with Discord4j. \
